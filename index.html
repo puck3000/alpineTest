@@ -10,10 +10,22 @@
     <div id="app" x-data>
       <h1 x-text="$store.data.name"></h1>
       <ul>
-        <template x-for="set in $store.data.datasets">
+        <template x-for="standort in $store.standorte.standorte">
           <li>
-            <h2 x-text="set.name"></h2>
-            <p x-text="set.data"></p>
+            <h2 x-text="standort"></h2>
+            <ul
+              x-data="{
+                jobs:  $store.data.datasets.filter(job => job.city === standort)
+              }"
+            >
+              <template x-for="job in jobs">
+                <li>
+                  <a :href="job.link">
+                    <h2 x-text="job.title"></h2>
+                  </a>
+                </li>
+              </template>
+            </ul>
           </li>
         </template>
       </ul>

@@ -1,23 +1,17 @@
 import './style.css'
-
+import dummyData from './dummyData.json'
 import Alpine from 'alpinejs'
 
-// suggested in the Alpine docs:
-// make Alpine on window available for better DX
+console.log(dummyData)
+
 window.Alpine = Alpine
 
 Alpine.store('data', {
   name: 'DummyData',
-  datasets: [
-    {
-      name: 'first',
-      data: 'This is Data',
-    },
-    {
-      name: 'second',
-      data: 'This is Data too',
-    },
-  ],
+  datasets: dummyData,
+})
+Alpine.store('standorte', {
+  standorte: ['Zürich', 'Basel', 'Bern', 'Genf', 'Lausanne'],
 })
 
 Alpine.start()
