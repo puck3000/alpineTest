@@ -8,19 +8,22 @@
   </head>
   <body>
     <div id="app" x-data>
-      <h1 x-text="$store.data.name"></h1>
+      <h1 x-cloak x-text="$store.data.name"></h1>
       <ul>
-        <template x-for="standort in $store.standorte.standorte">
+        <template
+          x-for="standort in $store.standorte.standorte"
+          :key="standort"
+        >
           <li>
-            <h2 x-text="standort"></h2>
+            <h2 x-cloak x-text="standort"></h2>
             <ul
               x-data="{
                 jobs:  $store.data.datasets.filter(job => job.city === standort)
               }"
             >
-              <template x-for="job in jobs">
+              <template x-for="job in jobs" :key="job.id">
                 <li>
-                  <a :href="job.link">
+                  <a x-cloak :href="job.link">
                     <h2 x-text="job.title"></h2>
                   </a>
                 </li>

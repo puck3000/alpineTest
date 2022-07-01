@@ -2,6 +2,8 @@ import './style.css'
 import dummyData from './dummyData.json'
 import Alpine from 'alpinejs'
 
+console.log(dummyData)
+
 window.Alpine = Alpine
 
 Alpine.store('data', {
