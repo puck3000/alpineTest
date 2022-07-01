@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app" x-data>
+      <h1 x-text="$store.data.name"></h1>
+      <ul>
+        <template x-for="set in $store.data.datasets">
+          <li>
+            <h2 x-text="set.name"></h2>
+            <p x-text="set.data"></p>
+          </li>
+        </template>
+      </ul>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
